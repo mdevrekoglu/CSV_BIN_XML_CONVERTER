@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="records">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="row" maxOccurs="unbounded" minOccurs="0">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="customer_info">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="name">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:maxLength value="20"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="surname">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:maxLength value="30"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="gender">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="M" />
+                                                    <xsd:enumeration value="F" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="occupancy">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:maxLength value="30"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="level_of_education">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="PhD"/>
+                                                    <xsd:enumeration value="MSc"/>
+                                                    <xsd:enumeration value="BSc"/>
+                                                    <xsd:enumeration value="HS"/>
+                                                    <xsd:enumeration value="PS"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="email">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:pattern value="[a-zA-Z0-9._%+-]+@(gmail\.com|hotmail\.com|yahoo\.com)"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="bank_account_info">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="bank_account_number">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:pattern value="\d{4}-\d{7}"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="IBAN">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <!--TR01 0123 0123 0123 01 -->
+                                                    <xsd:pattern value="TR\d{2} \d{4} \d{4} \d{4} \d{4} \d{2}"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="account_type">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="deposit"/>
+                                                    <xsd:enumeration value="drawing"/>
+                                                    <xsd:enumeration value="daily_deposit"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="total_balance_available">
+                                            <xsd:complexType>
+                                                <xsd:simpleContent>
+                                                <xsd:extension base="xsd:decimal">
+                                                    <xsd:attribute name="currency_unit" use="required">
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:string">
+                                                            <xsd:enumeration value="₺"/>
+                                                            <xsd:enumeration value="€"/>
+                                                            <xsd:enumeration value="$"/>
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:attribute>
+                                                    <xsd:attribute name="bigEnd_Version">
+                                                        <xsd:simpleType>
+                                                            <xsd:restriction base="xsd:decimal">
+                                                                <!-- ????????????????????????-->
+                                                            </xsd:restriction>
+                                                        </xsd:simpleType>
+                                                    </xsd:attribute>
+                                                </xsd:extension>
+                                                </xsd:simpleContent>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                        <xsd:element name="available_for_loan">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:string">
+                                                    <xsd:enumeration value="😊"/>
+                                                    <xsd:enumeration value="☹"/>
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="id" type="xsd:integer" use="required" />
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

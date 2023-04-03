@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<records>
+    
+    <row id="1">
+        <customer_info>
+            <name>Ahmet</name>
+            <surname>Özdemir</surname>
+            <gender>M</gender>
+            <occupancy>Teacher</occupancy>
+            <level_of_education>BSc</level_of_education>
+            <email>ahmet_ozdemir35@gmail.com</email>
+        </customer_info>
+        <bank_account_info>
+            <bank_account_number>0123-4567890</bank_account_number>
+            <IBAN>TR12 3456 7890 1234 5678 90</IBAN>
+            <account_type>deposit</account_type>
+            <total_balance_available currency_unit="₺" bigEnd_Version="196608">768</total_balance_available>
+            <available_for_loan>😊</available_for_loan>
+        </bank_account_info>
+    </row>
+
+    <row id="2">
+        <customer_info>
+            <name>Ahmet</name>
+            <surname>Özdemir</surname>
+            <gender>M</gender>
+            <occupancy>Teacher</occupancy>
+            <level_of_education>BSc</level_of_education>
+            <email>ahmet_ozdemir35@gmail.com</email>
+        </customer_info>
+        <bank_account_info>
+            <bank_account_number>0123-4567890</bank_account_number>
+            <IBAN>TR12 3456 7890 1234 5678 90</IBAN>
+            <account_type>deposit</account_type>
+            <total_balance_available currency_unit="₺" bigEnd_Version="196608">768</total_balance_available>
+            <available_for_loan>☹</available_for_loan>
+        </bank_account_info>
+    </row>
+</records>
