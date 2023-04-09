@@ -1,15 +1,39 @@
 #include <stdio.h>
 #include <libxml/xmlschemastypes.h>
 
+int validate(char *XMLFileName, char *XSDFileName);
+int convertCSVtoBinary();
+
+// Our project is reading an csv file and converting it to binary file then reading that binary file and
+// Converting it to xml file and then validating it with xsd file. The language we are using is C.
 int main()
 {
-    xmlDocPtr doc;
-    xmlSchemaPtr schema = NULL;
-    xmlSchemaParserCtxtPtr ctxt;
-	
+    char *CSVFileName = "records.csv";
+    char *BinaryFİleName = "asd"; //!!!!!!!!!!
     char *XMLFileName = "records.xml"; // write your xml file here
     char *XSDFileName = "records.xsd"; // write your xsd file here
+
+    int BinaryFileState = convertCSVtoBinary(CSVFileName, BinaryFİleName);
+
+
+
+
+
+
+
+
+
+
+    int ValidateState = validate(XMLFileName, XSDFileName);
+    printf("Validate State: %d\n", ValidateState);
     
+    return 0;  
+}
+
+int validate(char *XMLFileName, char *XSDFileName){
+    xmlDocPtr doc;
+    xmlSchemaPtr schema = NULL;
+    xmlSchemaParserCtxtPtr ctxt;    
     
     xmlLineNumbersDefault(1); //set line numbers, 0> no substitution, 1>substitution
     ctxt = xmlSchemaNewParserCtxt(XSDFileName); //create an xml schemas parse context
@@ -51,4 +75,12 @@ int main()
     xmlCleanupParser(); //cleans memory allocated by the library itself 
     xmlMemoryDump(); //memory dump
     return(0);
+}
+
+int convertCSVtoBinary(char *CSVFileName, char *BinaryFileName){
+
+
+
+
+    return 0;
 }
