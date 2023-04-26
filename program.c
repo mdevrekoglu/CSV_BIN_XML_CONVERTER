@@ -181,12 +181,6 @@ void converBINtoXML(char *BINFileName, char *XMLFileName){
     // It is not necessary but it is good to know
     fseek(fpBIN, 0, SEEK_END);
     int numberOfPerson = (ftell(fpBIN)/sizeof(Person));
-
-    // There is an errow which couses to remove one person from the file because of the last line
-    // To avoid it number of person can be decreased by one
-    // But I assume there is not any error in the file. What I mean is the last line is not empty
-    // So I don't decrease the number of person
-    // numberOfPerson--;
     
     // For debugging
     // printf("Number of person: %d\n", numberOfPerson);
