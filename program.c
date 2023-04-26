@@ -74,14 +74,16 @@ void convertCSVtoBIN(char *CSVFileName, char *BINFileName){
         exit(1);
     }
 
+    Person person;
     char line[sizeof(Person)];
     char temp[sizeof(Person)]; // temporary for modified line
 
     // Clear the line and temp strings
     memset(&temp, 0, sizeof(Person));
     memset(&line, 0, sizeof(Person));
+    memset(&person, 0, sizeof(Person));
      
-    Person person;
+
     
     fgets(line, sizeof(Person), CSVFile);
     while (fgets(line, sizeof(Person), CSVFile)) {
@@ -109,7 +111,7 @@ void convertCSVtoBIN(char *CSVFileName, char *BINFileName){
             person.currency_unit, &person.total_balance_available, person.available_for_loan);
 
         // If result is not 12 and row is not empty then print error message
-        if(result != 12 && line[0] != '\n' && line[0] != '\0'){
+        if(result != 12){
             printf("\nAn error accoured during reading a row\n");
             printf("Row: %s\n", line);
             printf("Result: %d\n\n", result);
@@ -153,6 +155,7 @@ void convertCSVtoBIN(char *CSVFileName, char *BINFileName){
         // Clear the line and temp strings
         memset(&temp, 0, sizeof(Person));
         memset(&line, 0, sizeof(Person));
+        memset(&person, 0, sizeof(Person));
     }
 
     fclose(CSVFile);
