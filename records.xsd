@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <!-- I couldn't find any way to avoid checking the main roots name -->
+    <!-- We couldn't find a way to not check the name of the main root -->
     <xsd:element name="records">
         <xsd:complexType>
             <xsd:sequence>
@@ -10,15 +10,18 @@
                     <xsd:complexType>
                         <xsd:sequence>
 
-                            <xsd:element name="customer_info">
+                            <xsd:element name="customer_info" maxOccurs="1" minOccurs="1">
                                 <xsd:complexType>
                                     <xsd:sequence>
 
                                         <xsd:element name="name">
                                             <xsd:simpleType>
                                                 <xsd:restriction base="xsd:string">
-                                                    <xsd:minLength value="3"/>
+                                                    <xsd:minLength value="2"/>
                                                     <xsd:maxLength value="20"/>
+                                                    <!-- Because of the characters such as ÖÇİ -->
+                                                    <!-- Below code can not be used -->
+                                                    <!-- xsd:pattern value="[A-Z][a-z]+"/ -->
                                                 </xsd:restriction>
                                             </xsd:simpleType>
                                         </xsd:element>
@@ -26,8 +29,11 @@
                                         <xsd:element name="surname">
                                             <xsd:simpleType>
                                                 <xsd:restriction base="xsd:string">
-                                                    <xsd:minLength value="3"/>
+                                                    <xsd:minLength value="2"/>
                                                     <xsd:maxLength value="30"/>
+                                                    <!-- Because of the characters such as ÖÇİ -->
+                                                    <!-- Below code can not be used -->
+                                                    <!-- xsd:pattern value="[A-Z][a-z]+"/ -->
                                                 </xsd:restriction>
                                             </xsd:simpleType>
                                         </xsd:element>
@@ -44,7 +50,7 @@
                                         <xsd:element name="occupancy">
                                             <xsd:simpleType>
                                                 <xsd:restriction base="xsd:string">
-                                                    <xsd:minLength value="3"/>
+                                                    <xsd:minLength value="2"/>
                                                     <xsd:maxLength value="30"/>
                                                 </xsd:restriction>
                                             </xsd:simpleType>
@@ -119,7 +125,7 @@
                                                             </xsd:simpleType>
                                                         </xsd:attribute>
                                                         
-                                                        <xsd:attribute name="bigEnd_Version">
+                                                        <xsd:attribute name="bigEnd_Version" use="required">
                                                             <xsd:simpleType>
                                                                 <xsd:restriction base="xsd:decimal"/>
                                                             </xsd:simpleType>
